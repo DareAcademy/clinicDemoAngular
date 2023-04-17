@@ -1,0 +1,80 @@
+<form [formGroup]="forms">
+<div class="row">
+<div class="col-6">
+    <div class="mb-3">
+        <label  class="form-label">First Name</label>
+        <input type="text" class="form-control" formControlName="firstName"  placeholder="Name">
+        <small *ngIf="forms.controls['firstName'].touched && forms.hasError('required','firstName')">Name is required</small>
+      </div>
+</div>
+
+</div>
+
+<div class="row">
+  <div class="col-6">
+      <div class="mb-3">
+          <label  class="form-label">Last Name</label>
+          <input type="text" class="form-control" formControlName="lastName"  placeholder="Name">
+          <small *ngIf="forms.controls['lastName'].touched && forms.hasError('required','lastName')">Name is required</small>
+        </div>
+  </div>
+  
+  </div>
+
+
+<div class="row">
+    <div class="col-6">
+    
+  <div class="mb-3">
+    <label  class="form-label">Phone</label>
+    <input type="text" class="form-control" formControlName="Phone"  placeholder="07(7|8|9)0000000">
+    <small *ngIf="forms.controls['Phone'].touched && forms.hasError('required','Phone')">Phone is required</small>
+    
+  </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+    
+  <div class="mb-3">
+    <label  class="form-label">Email</label>
+    <input type="email" class="form-control" formControlName="Email"  placeholder="email@email.com">
+    <small *ngIf="forms.controls['Email'].touched && forms.hasError('required','Email')">Phone is required</small>
+    <small *ngIf="forms.controls['Email'].touched && forms.hasError('email','Email')">Invalid Email Format</small>
+  </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+    
+  <div class="mb-3">
+    <label  class="form-label">BDate</label>
+    <input type="date" formControlName="BDate" class="form-control" >
+  </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+    
+  <div class="mb-3">
+    <label  class="form-label">Country</label>
+    <select class="form-select" formControlName="country">
+        <option *ngFor="let item of liCountry" [value]="item.id"  >
+            {{item.name}}
+        </option>
+        
+      </select>
+  </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+    
+  <div class="mb-3">
+    <input type="button" value="Save" (click)="onSave()" class="btn btn-primary">
+  </div>
+
+</div>
+</div>
+</form>
